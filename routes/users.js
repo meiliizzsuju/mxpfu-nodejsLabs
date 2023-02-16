@@ -28,6 +28,13 @@ router.get("/",(req,res)=>{
   res.send(users);
 });
 
+// GET request: Filter By email ID
+router.get("/:email", (req, res) => {
+  const email = req.params.email;
+  let filtered_users = users.filter((user) => user.email === email);
+  res.send(filtered_users);
+});
+
 // GET by specific ID request: Retrieve a single user with email ID
 router.get("/:email",(req,res)=>{
   // Copy the code here
